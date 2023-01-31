@@ -22,7 +22,7 @@ For the purposes of this lesson I suggest only allocating 2 cores and 8gb of ram
 
 First, we need to create a VM instance. To get started, click on 'Create a VM Instance' on the landing page after signing in. You may have to scroll down to the 'Launch Resources' panel.
 
-![Arrow to Create VM Instance.](/images/launch-resources.jpg "VM Instance")
+![Create VM Instance.](/images/launch-resources.png "VM Instance")
 
 Give your VM instance a name (I called mine “hacksu-lesson"). You can just leave the default (“root”) compartment selected. You can also leave the "availability domain" as the default.
 
