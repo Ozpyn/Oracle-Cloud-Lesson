@@ -60,4 +60,70 @@ Now, after all of those shenanegans you can click create on your vm.
 
 ![Create.](/images/create.png "Create")
 
+After clicking create, you will be redirected to the VM details page, wait to continue until it is done provisioning.
+
 ## Connect to the Running VM
+
+After the VM has provisioned its public ip-address and username will become visible. Be sure to take note and save these in a safe place.
+
+![General Info.](/images/gen-info.png "General Info")
+
+Using your preferred SSH client: connect to the server with the provided username and ip address. (e.g. `ssh usr@10.10.10.10 -i ~/Downloads/key.key` )
+
+### Install Java
+
+List available Java Development Kits with the following command: `yum list jdk*`
+
+We will use the most recent version of the JDK "jdk-19-headful.aarch64".
+
+Install it with the following command: `sudo yum install jdk-19-headful.aarch64`
+
+Confirm installation with  `java --version`
+
+### Install Minecraft Server
+
+Time for the juice!!
+
+(not in the vm) Head on over to https://www.minecraft.net/en-us/download/server and copy the link to download the latest server.jar file.
+
+(in vm) Run the wget command to download the server.jar file `wget https://piston-data.mojang.com/v1/objects/c9df48efed58511cdd0213c56b9013a7b5c9ac1f/server.jar`
+
+Run the server with: `java -Xmx1024M -Xms1024M -jar server.jar nogui`
+
+You will get a prompt to accept the eula, to do so run `nano eula.txt` and change `eula=false` to `eula=true`, then save the file.
+
+### Firewall Stuff
+
+Back to Oracle Cloud vm details we go!
+
+Click on the link for the subnet you created earlier.
+
+![VNIC.](/images/vnic.png "VNIC")
+
+Click on the default ’Security List’.
+
+Click on 'Add Ingress Rules'.
+
+Add 2 Rules - one for TCP and one for UDP - each with a ’Source CIDR’ of 0.0.0.0/0 and a destination port range of 25565.
+
+![Ingress Rules.](/images/ingress-rules.png "Ingress Rules")
+
+Back to the VM!!!!
+
+Open the ports on the firewall:
+
+```
+sudo firewall-cmd --permanent --zone=public --add-port=25565/tcp
+sudo firewall-cmd --permanent --zone=public --add-port=25565/udp
+sudo firewall-cmd --reload
+```
+
+### Starting the Server (again)
+
+Run the server with: `java -Xmx1024M -Xms1024M -jar server.jar nogui`
+
+After a minute or two your server is up and running.
+
+Congradulations!! You now have a fully functioning Minecraft Server hosted in the cloud.
+
+If you were so inclined, you could use the remaining compute power to host a website, or even another server!
