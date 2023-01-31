@@ -20,9 +20,9 @@ For the purposes of this lesson I suggest only allocating 2 cores and 8gb of ram
 
 ## Create a VM Instance
 
-First, we need to create a VM instance. To get started, click on 'Create a VM Instance' on the landing page after signing in. 
+First, we need to create a VM instance. To get started, click on 'Create a VM Instance' on the landing page after signing in. You may have to scroll down to the 'Launch Resources' panel.
 
-![Arrow to Create VM Instance.](/images/createVmInstance.jpg "VM Instance")
+![Arrow to Create VM Instance.](/images/launch-resources.jpg "VM Instance")
 
 Give your VM instance a name (I called mine “hacksu-lesson"). You can just leave the default (“root”) compartment selected. You can also leave the "availability domain" as the default.
 
@@ -32,7 +32,7 @@ Give your VM instance a name (I called mine “hacksu-lesson"). You can just lea
 
 Next up, Image and Shape. Make sure you have the "Oracle Linux" image selected. Now on to the shape, this is where you allocate resources to your instance. Select "Ampere" as the desired shape series. As referenced earlier, I reccomend using 2 cores and 8gb of ram. If you attempt to use more resources than are available to you Oracle Cloud will warn you that you have exceeded your service limit.
 
-![Image and Shape.](/images/image-shape-1.png "Image and Shape")
+![Image and Shape.](/images/image-shape.png "Image and Shape")
 
 ![Shape.](/images/shape-specify.png "Shape Specify")
 
