@@ -1,4 +1,4 @@
-\# Minecraft in the Cloud
+# Minecraft in the Cloud
 
 Before getting started (before coming to the meeting) please ensure you have signed up for an oracle cloud account, *the setup takes a little bit*.
 https://www.oracle.com/cloud/free/
@@ -85,7 +85,6 @@ Confirm installation with  `java --version`
 Time for the juice!!
 
 ---
-
 Vanilla Server:
 
 (not in the vm) Head on over to https://www.minecraft.net/en-us/download/server and copy the link to download the latest server.jar file.
@@ -93,8 +92,7 @@ Vanilla Server:
 (in vm) Run the wget command to download the server.jar file `wget https://piston-data.mojang.com/v1/objects/c9df48efed58511cdd0213c56b9013a7b5c9ac1f/server.jar`
 
 ---
-
-With Plugins: 
+Plugin Capable (Modded): 
 
 (not in the vm) Head on over to https://papermc.io/downloads and copy the link to download the latest server.jar file.
 
@@ -102,6 +100,7 @@ With Plugins:
 
 `The wget '-O' modifier allows the file to be downloaded with a specific name`
 
+---
 Run the server with: `java -Xmx1024M -Xms1024M -jar server.jar nogui`
 
 You will get a prompt to accept the eula, to do so run `nano eula.txt` and change `eula=false` to `eula=true`, then save the file.
