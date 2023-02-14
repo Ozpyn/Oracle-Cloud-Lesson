@@ -16,6 +16,8 @@ If using PuTTY, PuTTY KeyGen is also needed to convert ssh keys into putty keys.
 
 In efforts to get more cusomers using their new infrastructure (using Ampere Arm), Oracle (the java people) made their free tier a fair bit more powerful. Usable processing power includes 4 cpu cores and 24 gb of ram. The resources can be split into multiple instances or pooled into just one.
 
+With such a compuing instance somebody could (for example): Host a website, Host a Minecraft Server, Have a remote VSCode Development Server, make a RESTful API, Host a Discord Bot, and many others.
+
 For the purposes of this lesson I suggest only allocating 2 cores and 8gb of ram to the Minecraft Server instance. (Oracle has support for changing the allocation of resources later on, if desired.)
 
 ## Create a VM Instance
