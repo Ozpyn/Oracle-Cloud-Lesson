@@ -1,5 +1,11 @@
 - [Intro](#minecraft-in-the-cloud)
     - [Details](#details)
+    - [Create VM](#create-a-vm-instance)
+    - [VM Connect](#connect-to-the-running-vm)
+        -[Install Java](#install-java)
+        -[Install Minecraft Server](#install-minecraft-server)
+    -[Firewall](#firewall-stuff)
+    -[Start Server & Finishing](#starting-the-server-again-and-finishing-up)
 
 # Minecraft in the Cloud
 
@@ -112,7 +118,7 @@ Run the server with: `java -Xmx1024M -Xms1024M -jar server.jar nogui`
 
 You will get a prompt to accept the eula, to do so run `nano eula.txt` and change `eula=false` to `eula=true`, then save the file.
 
-### Firewall Stuff
+## Firewall Stuff
 
 Back to Oracle Cloud vm details we go!
 
@@ -138,7 +144,7 @@ sudo firewall-cmd --permanent --zone=public --add-port=25565/udp
 sudo firewall-cmd --reload
 ```
 
-### Starting the Server (again)
+## Starting the Server (again) and finishing up
 
 Run the server with: `java -Xmx1024M -Xms1024M -jar server.jar nogui` (Appending the `nohup` command to the start will allow the server to persist after you disconnect from SSH.)
 
