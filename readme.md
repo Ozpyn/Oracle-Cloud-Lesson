@@ -1,11 +1,11 @@
 - [Intro](#minecraft-in-the-cloud)
-    - [Details](#details)
-    - [Create VM](#create-a-vm-instance)
-    - [VM Connect](#connect-to-the-running-vm)
-        -[Install Java](#install-java)
-        -[Install Minecraft Server](#install-minecraft-server)
-    -[Firewall](#firewall-stuff)
-    -[Start Server & Finishing](#starting-the-server-again-and-finishing-up)
+- [Details](#details)
+- [Create VM](#create-a-vm-instance)
+- [VM Connect](#connect-to-the-running-vm)
+    -[Install Java](#install-java)
+    -[Install Minecraft Server](#install-minecraft-server)
+-[Firewall](#firewall-stuff)
+-[Start Server & Finishing](#starting-the-server-again-and-finishing-up)
 
 # Minecraft in the Cloud
 
