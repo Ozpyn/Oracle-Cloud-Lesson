@@ -1,6 +1,6 @@
 # Minecraft in the Cloud
 
-Before getting started (before coming to the meeting) please ensure you have signed up for an oracle cloud account, *the setup takes a little bit*.
+Before getting started (before coming to the meeting) please ensure you have signed up for an oracle cloud account, *the setup takes a little bit to do and also for Oracle to verify details*.
 https://www.oracle.com/cloud/free/
 
 Be sure to also install a functional ssh software. MacOS and many linux versions support ssh via the terminal by default. Windows PowerShell (not cmd.exe to my knowledge) also natively supports ssh. There are a variety of chrome extentions for chromebooks that add ssh functionality.
@@ -44,7 +44,7 @@ Okay now that we've defined computing variables, verify that your shape variable
 
 ### Networking
 
-We’ll need to choose a virtual cloud network (VCN). Select ‘Create a new virtual cloud network’. Then, choose ‘Create a public subnet’ and choose names that are descriptive (You will thank yourself later, for the most part the names cannoot change). Finally, make sure that ‘Assign a public IPv4 address’ is selected (required to make a connection via ssh).
+We’ll need to choose a virtual cloud network (VCN). Select ‘Create a new virtual cloud network’. Then, choose ‘Create a public subnet’ and choose names that are descriptive (You will thank yourself later, for the most part the names cannot change). Finally, make sure that ‘Assign a public IPv4 address’ is selected (required to make a connection via ssh).
 
 ![Networking.](/images/networking.png "Networking")
 
