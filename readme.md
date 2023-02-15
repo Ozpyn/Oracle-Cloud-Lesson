@@ -1,3 +1,6 @@
+- [Intro](#minecraft-in-the-cloud)
+    - [Details](#details)
+
 # Minecraft in the Cloud
 
 Before getting started (before coming to the meeting) please ensure you have signed up for an oracle cloud account, *the setup takes a little bit to do and also for Oracle to verify details*.
