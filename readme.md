@@ -16,7 +16,9 @@ If using PuTTY, PuTTY KeyGen is also needed to convert ssh keys into putty keys.
 
 In efforts to get more cusomers using their new infrastructure (using Ampere Arm), Oracle (the java people) made their free tier a fair bit more powerful. Usable processing power includes 4 cpu cores and 24 gb of ram. The resources can be split into multiple instances or pooled into just one.
 
-With such a compuing instance somebody could (for example): Host a website, Host a Minecraft Server, Have a remote VSCode Development Server, make a RESTful API, Host a Discord Bot, and many others.
+With such a compuing instance somebody could (for example): Host a website, Host a Minecraft Server, Have a remote VSCode Development Server (Similar to Kent's CS wasp and hornet), make a RESTful API, Host a Discord Bot, and many others.
+
+The most common way to host a website on a server involves a lengthy process of messing around with Apache2 or with bundles that include Apache2. This obviously is not the only website hosting tool, however it does seem to be the only beginner friendly one that I have found.
 
 For the purposes of this lesson I suggest only allocating 2 cores and 8gb of ram to the Minecraft Server instance. (Oracle has support for changing the allocation of resources later on, if desired.)
 
@@ -135,10 +137,12 @@ sudo firewall-cmd --reload
 
 ### Starting the Server (again)
 
-Run the server with: `java -Xmx1024M -Xms1024M -jar server.jar nogui`
+Run the server with: `java -Xmx1024M -Xms1024M -jar server.jar nogui` (Appending the `nohup` command to the start will allow the server to persist after you disconnect from SSH.)
 
 After a minute or two your server is up and running.
 
 Congradulations!! You now have a fully functioning Minecraft Server hosted in the cloud.
+
+To connect to said server: use the IP address of the vm followed by the port we opened earlier. ( 12.34.56.78:25565 )
 
 If you were so inclined, you could use the remaining compute power to host a website, or even another server!
