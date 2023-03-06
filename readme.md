@@ -1,14 +1,13 @@
 
-+ [Intro](#minecraft-in-the-cloud)
++ [Intro](#in-the-cloud)
 + [Details](#details)
 + [Create VM](#create-a-vm-instance)
 + [VM Connect](#connect-to-the-running-vm)
-    + [Install Java](#install-java)
-    + [Install Minecraft Server](#install-minecraft-server)
-+ [Firewall](#firewall-stuff)
-+ [Start Server & Finishing](#starting-the-server-again-and-finishing-up)
++ [Bot Stuff](#bot-stuff)
+    + [JavaScript](#javascript)
+    + [Python](#python)
 
-# Minecraft in the Cloud
+# In the Cloud
 
 Before getting started (before coming to the meeting) please ensure you have signed up for an oracle cloud account, *the setup takes a little bit to do and also for Oracle to verify details*.
 https://www.oracle.com/cloud/free/
@@ -84,75 +83,10 @@ After the VM has provisioned its public ip-address and username will become visi
 
 Using your preferred SSH client: connect to the server with the provided username and ip address. (e.g. `ssh usr@10.10.10.10 -i ~/Downloads/key.key` )
 
-### Install Java
+## Bot Stuff
 
-List available Java Development Kits with the following command: `yum list jdk*`
+There are two routes we can take from here, depending on the bot you have or want to build. Personally I prefer JavaScript, so that is the guild I will follow, however if you wish to host the Python bot you made in a previous lesson there will be instructions on how to do that here.
 
-We will use the most recent version of the JDK "jdk-19-headful.aarch64".
+### JavaScript
 
-Install it with the following command: `sudo yum install jdk-19-headful.aarch64`
-
-Confirm installation with  `java --version`
-
-### Install Minecraft Server
-
-Time for the juice!!
-
----
-Vanilla Server:
-
-(not in the vm) Head on over to https://www.minecraft.net/en-us/download/server and copy the link to download the latest server.jar file.
-
-(in vm) Run the wget command to download the server.jar file `wget https://piston-data.mojang.com/v1/objects/c9df48efed58511cdd0213c56b9013a7b5c9ac1f/server.jar`
-
----
-Plugin Capable (Modded): 
-
-(not in the vm) Head on over to https://papermc.io/downloads and copy the link to download the latest server.jar file.
-
-(in vm) Run the wget command to download the server.jar file `wget -O server.jar https://api.papermc.io/v2/projects/paper/versions/1.19.3/builds/386/downloads/paper-1.19.3-386.jar`
-
-`The wget '-O' modifier allows the file to be downloaded with a specific name`
-
----
-Run the server with: `java -Xmx1024M -Xms1024M -jar server.jar nogui`
-
-You will get a prompt to accept the eula, to do so run `nano eula.txt` and change `eula=false` to `eula=true`, then save the file.
-
-## Firewall Stuff
-
-Back to Oracle Cloud vm details we go!
-
-Click on the link for the subnet you created earlier.
-
-![VNIC.](/images/vnic.png "VNIC")
-
-Click on the default ’Security List’.
-
-Click on 'Add Ingress Rules'.
-
-Add 2 Rules - one for TCP and one for UDP - each with a ’Source CIDR’ of 0.0.0.0/0 and a destination port range of 25565.
-
-![Ingress Rules.](/images/ingress-rules.png "Ingress Rules")
-
-Back to the VM!!!!
-
-Open the ports on the firewall:
-
-```
-sudo firewall-cmd --permanent --zone=public --add-port=25565/tcp
-sudo firewall-cmd --permanent --zone=public --add-port=25565/udp
-sudo firewall-cmd --reload
-```
-
-## Starting the Server (again) and finishing up
-
-Run the server with: `java -Xmx1024M -Xms1024M -jar server.jar nogui` (Appending the `nohup` command to the start will allow the server to persist after you disconnect from SSH.)
-
-After a minute or two your server is up and running.
-
-Congradulations!! You now have a fully functioning Minecraft Server hosted in the cloud.
-
-To connect to said server: use the IP address of the vm followed by the port we opened earlier. ( 12.34.56.78:25565 )
-
-If you were so inclined, you could use the remaining compute power to host a website, or even another server!
+### Python
