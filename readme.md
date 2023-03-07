@@ -129,7 +129,7 @@ Run `touch config.json` then `nano config.json` and enter the following:
 ```
 {
     "token": "YOUR_TOKEN_HERE",
-    "prefix": "PREFIX "
+    "prefix": "YOUR_PREFIX_HERE"
 }
 ```
 
@@ -209,3 +209,62 @@ Any other scripts can be safely removed.
 AND FINALLY, we can run `npm start` to run our Discord Bot. (Speaker Note: Call for hands of any questions)
 
 ### Python
+
+Install Python first my friend. `yum update -y` then `yum install -y python3` and also: `sudo yum –y install python3-pip`
+
+Next, make a folder to house the bot: `mkdir BOTNAME`
+
+Install Discord Python with the following command `pip install discord.py`
+
+Make a file called `bot.py` and `config.json`.
+
+```
+touch bot.py
+touch config.json
+```
+
+To edit your config file: `nano config.json` and enter the following:
+
+```
+{
+    "token": "YOUR_DISCORD_BOT_TOKEN",
+    "prefix": "YOUR_PREFIX_HERE"
+}
+```
+
+Edit your bot file with `nano bot.py` and add the following:
+```
+import discord
+from discord.ext import commands
+import json
+```
+These are imports that help the bot function.
+
+
+```
+with open('config.json', 'r') as f:
+    config = json.load(f)
+```
+This allows the bot to parse the json file.
+
+```
+bot = commands.Bot(command_prefix=config['prefix'])
+```
+Allows the bot to respond to the defined prefix.
+
+```
+@bot.event
+async def on_ready():
+    print(f'{bot.user.name} has connected to Discord!')
+```
+Spits out commentary in the console when the bot is running.
+
+```
+@bot.command(name='ping')
+async def ping(ctx):
+    await ctx.send('Pong!')
+```
+
+```
+bot.run(config['token'])
+```
