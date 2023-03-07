@@ -144,6 +144,26 @@ const Discord = require('discord.js');
 const config = require('./config.json');
 ```
 
+Next, we define what the bot will be able to do:
 
+```
+const client = new Discord.Client({
+    intents: Discord.IntentsBitField.Flags.Guilds
+        | Discord.IntentsBitField.Flags.GuildMessages
+        | Discord.IntentsBitField.Flags.MessageContent
+});
+```
+
+According to the intents that are requested, the bot is able to read all messages. (In order to check for when it is called upon)
+
+To finish setting up the bot (sans any commands) add the following code.
+
+```
+client.on('ready', () => {
+    console.log(`Logged in as ${client.user.tag}`);
+});
+
+client.login(config.token);
+```
 
 ### Python
