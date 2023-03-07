@@ -125,6 +125,25 @@ If you have already made a JavaScript discord bot, then it should be aas simple 
 
 If you haven't made a bot yet, thats totally okay. We will make a simple one now.
 
+Run `touch config.json` then `nano config.json` and enter the following: 
+```
+{
+    "token": "YOUR_TOKEN_HERE",
+    "prefix": "PREFIX "
+}
+```
+
+replace YOUR_TOKEN_HERE with the secret token you copied from the Discord Developer page.
+
+With the initialization command we ran earlier, the pre-defined entrypoint was set to `index.js`. Small issue though, that does not exist, so lets make one! Run `touch index.js`, then depending on the SSH service you are using (Point & Click or CLI), open index.js. (CLI: nano index.js). 
+
+The heading of the file should include all imports.
+
+```
+const Discord = require('discord.js');
+const config = require('./config.json');
+```
+
 
 
 ### Python
