@@ -1,0 +1,16 @@
+{
+  "name": "demobot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "Ozpyn",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^14.7.1",
+    "node": "^19.6.0"
+  }
+}
