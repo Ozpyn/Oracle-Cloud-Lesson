@@ -135,6 +135,8 @@ Run `touch config.json` then `nano config.json` and enter the following:
 
 replace YOUR_TOKEN_HERE with the secret token you copied from the Discord Developer page.
 
+`CTRL + X` to exit nano.
+
 With the initialization command we ran earlier, the pre-defined entrypoint was set to `index.js`. Small issue though, that does not exist, so lets make one! Run `touch index.js`, then depending on the SSH service you are using (Point & Click or CLI), open index.js. (CLI: nano index.js). 
 
 The heading of the file should include all imports.
@@ -165,5 +167,45 @@ client.on('ready', () => {
 
 client.login(config.token);
 ```
+
+This will pop a message in your command line when the bot is confirmed to be online.
+It will also log into Discord given the secret token.
+
+Now, lets write the command interpreter and a command.
+
+```
+client.on('messageCreate', msg => {
+    if (msg.author.bot) return;
+    if (msg.content.indexOf(config.prefix) !== 0) return;
+    const input = msg.content.toLowerCase();
+    const args = input.slice(config.prefix.length).trim().split(/ +/g);
+    const command = args.shift();
+    switch (command) {
+        case "ping":
+            console.log(`Pinged!`)
+            msg.channel.send('Pong!');
+            break;
+    }
+
+});
+```
+
+The code that you've just written will do a few things: Ignore inputs given by bots, Ignore inputs that do not start with the given prefix, makes user input lowercase (for easier processing), splits user input into multiple arguments, and houses commands. If you wish to write new commands, it should be rather simple, just add a new case in the switch statement.
+
+`CTRL + X` to exit nano.
+
+One more step before we can run the bot run `nano package.json`, and make sure your scripts looks like the following:
+
+```
+  "scripts": {
+    "start": "node index.js"
+  },
+```
+
+Any other scripts can be safely removed.
+
+`CTRL + X` to exit nano.
+
+AND FINALLY, we can run `npm start` to run our Discord Bot. (Speaker Note: Call for hands of any questions)
 
 ### Python
