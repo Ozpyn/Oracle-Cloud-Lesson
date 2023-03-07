@@ -49,6 +49,8 @@ Next up, Image and Shape. Make sure you have the "Oracle Linux" image selected. 
 
 ![Shape.](/images/shape-specify.png "Shape Specify")
 
+(Editing Oz getting in the way here, aafter goiing  back through the steps, it looks like most of the always free resources using ampere arm have been claimed, this isnt an issue however, because we can use the VM.Standard.E2.1.Micro from the previous generation tab. Good luck, and have fun! I do say it is a smidgen slower than I would like.)
+
 Okay now that we've defined computing variables, verify that your shape variable contains the "always free-eligible" tag.
 
 ![Verify.](/images/always-free-verify.png "Verify")
@@ -85,8 +87,44 @@ Using your preferred SSH client: connect to the server with the provided usernam
 
 ## Bot Stuff
 
-There are two routes we can take from here, depending on the bot you have or want to build. Personally I prefer JavaScript, so that is the guild I will follow, however if you wish to host the Python bot you made in a previous lesson there will be instructions on how to do that here.
+There are two routes we can take from here, depending on the bot you have or want to build. Personally I prefer JavaScript, so that is the guide I will follow, however if you wish to host the Python bot you made in a previous lesson there will be instructions on how to do that here.
+
+For both options you will need to create a discord application for the bot.
+
+1. Open the [Discord developer portal](https://discord.com/developers/applications) and log into your account.
+2. Click on the "New Application" button.
+3. Enter a name and confirm the pop-up window by clicking the "Create" button.\
+4. Select the "Bot" tab in the left pane.
+5. Click the "Add Bot" button on the right and confirm the pop-up window by clicking "Yes, do it!". Congratulations, you're now the proud owner of a shiny new Discord bot! You're not entirely done, though.
+
+Okay listen up bits and bobs, this next part is crucially important, not only for the security of your bot, but also every server it might be in, and even your server. You are about to copy your discord bot token, do not share this under any circumstances, we will use a config file to reasonably obfuscate this. If you decide to put your bot on any git type service, please use a .gitignore file to make it so the config file doesn't get uploaded.
+
+6. Go to 'Build-A-Bot' under the 'Bot' tab, click 'Reset Token' to snag the super secret login info.
+7. We also need to enable the 'Message Content Intent' in order for the bot to recieve input. (Dont forget to click save!)
+8. Now, to add the bot to our server, sneak over to the "OAuth2" tab on the left.
+9. Sneak to the 'URL Generator' tab, There are a bunch of scopes here, we only need the 'Bot' scope, this can be changed later.
+10. We will also give the bot all text permissions.
+11. With the generated link, we can add the bot to our server.
+
+
+#
 
 ### JavaScript
+
+Firstly, we will install NodeJS, as this will help us run the discord bot.
+
+`sudo yum install nodejs`
+
+Then, make a project directory with `mkdir BOTNAME`, navigate there `cd BOTNAME`.
+
+Initialize the NodeJS project: `npm init -y` the '-y' modifier will automatically fill out small details to start the project.
+
+Install DiscordJS with `npm install discord.js`, this package will allow the bot to actually communicate with discord.
+
+If you have already made a JavaScript discord bot, then it should be aas simple as downloading the bot files to your server. (VSCode is really cool, as it allows you to click and drag files from your local machine.) 
+
+If you haven't made a bot yet, thats totally okay. We will make a simple one now.
+
+
 
 ### Python
