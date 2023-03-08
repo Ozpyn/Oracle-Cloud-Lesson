@@ -233,42 +233,43 @@ To edit your config file: `nano config.json` and enter the following:
 ```
 
 Edit your bot file with `nano bot.py` and add the following:
+These are imports that help the bot function.
 ```
 import discord
 from discord.ext import commands
 import json
 ```
-These are imports that help the bot function.
 
 
+This allows the bot to parse the json file.
 ```
 with open('config.json', 'r') as f:
     config = json.load(f)
 ```
-This allows the bot to parse the json file.
 
+Allows the bot to respond to the defined prefix.
 ```
 bot = commands.Bot(command_prefix=config['prefix'])
 ```
-Allows the bot to respond to the defined prefix.
 
+The following spits out commentary in the console when the bot is running.
 ```
 @bot.event
 async def on_ready():
     print(f'{bot.user.name} has connected to Discord!')
 ```
-Spits out commentary in the console when the bot is running.
 
+The command structure for bot commands.
 ```
 @bot.command(name='ping')
 async def ping(ctx):
     await ctx.send('Pong!')
 ```
-The command structure for bot commands.
 
+Allows the bot to sign into Discord.
 ```
 bot.run(config['token'])
 ```
-Allows the bot to sign into Discord.
+
 
 Start that goober with `python3 bot.py` or `python bot.py` (whichever works).
