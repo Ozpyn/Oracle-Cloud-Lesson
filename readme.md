@@ -264,7 +264,11 @@ Spits out commentary in the console when the bot is running.
 async def ping(ctx):
     await ctx.send('Pong!')
 ```
+The command structure for bot commands.
 
 ```
 bot.run(config['token'])
 ```
+Allows the bot to sign into Discord.
+
+Start that goober with `python3 bot.py` or `python bot.py` (whichever works).
