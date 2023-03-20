@@ -29,7 +29,7 @@ With such a compuing instance somebody could (for example): Host a website, Host
 
 The most common way to host a website on a server involves a lengthy process of messing around with Apache2 or with bundles that include Apache2. This obviously is not the only website hosting tool, however it does seem to be the only beginner friendly one that I have found.
 
-For the purposes of this lesson I suggest only allocating 2 cores and 8gb of ram to the Minecraft Server instance. (Oracle has support for changing the allocation of resources later on, if desired.)
+For the purposes of this lesson I suggest only allocating 2 cores and 8gb of ram to the Server instance. (Oracle has support for changing the allocation of resources later on, if desired.)
 
 ## Create a VM Instance
 
@@ -49,7 +49,7 @@ Next up, Image and Shape. Make sure you have the "Oracle Linux" image selected. 
 
 ![Shape.](/images/shape-specify.png "Shape Specify")
 
-(Editing Oz getting in the way here, aafter goiing  back through the steps, it looks like most of the always free resources using ampere arm have been claimed, this isnt an issue however, because we can use the VM.Standard.E2.1.Micro from the previous generation tab. Good luck, and have fun! I do say it is a smidgen slower than I would like.)
+(Editing Oz getting in the way here, after going  back through the steps, it looks like most of the always free resources using ampere arm have been claimed, this isnt an issue however, because we can use the VM.Standard.E2.1.Micro from the previous generation tab. Good luck, and have fun! I do say it is a smidgen slower than I would like. It has a maximum of 1 core and 1gb of RAM.)
 
 Okay now that we've defined computing variables, verify that your shape variable contains the "always free-eligible" tag.
 
