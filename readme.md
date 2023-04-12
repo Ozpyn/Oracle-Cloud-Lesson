@@ -210,7 +210,7 @@ AND FINALLY, we can run `npm start` to run our Discord Bot. (Speaker Note: Call 
 
 ### Python
 
-Install Python first my friend. `yum update -y` then `yum install -y python3` and also: `sudo yum –y install python3-pip`
+Install Python first my friend. `sudo yum update -y` then `sudo yum install -y python3` and also: `sudo yum install -y python3-pip`
 
 Next, make a folder to house the bot: `mkdir BOTNAME`
 
