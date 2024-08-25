@@ -107,6 +107,75 @@ Okay listen up bits and bobs, this next part is crucially important, not only fo
 10. We will also give the bot all text permissions.
 11. With the generated link, we can add the bot to our server.
 
+If you really dont want to write line by line, you can copy this repo and just edit the premade files.
+
+#
+
+### Python
+
+Install Python first my friend. `sudo yum update -y` then `sudo yum install -y python3` and also: `sudo yum install -y python3-pip`
+
+Next, make a folder to house the bot: `mkdir BOTNAME`
+
+Install Discord Python with the following command `pip install -U discord.py`
+
+Make a file called `bot.py` and `config.json`.
+
+```
+touch bot.py
+touch config.json
+```
+
+To edit your config file: `nano config.json` and enter the following:
+
+```
+{
+    "token": "YOUR_DISCORD_BOT_TOKEN",
+    "prefix": "YOUR_PREFIX_HERE"
+}
+```
+
+Edit your bot file with `nano bot.py` and add the following:
+These are imports that help the bot function.
+```
+import discord
+from discord.ext import commands
+import json
+```
+
+
+This allows the bot to parse the json file.
+```
+with open('config.json', 'r') as f:
+    config = json.load(f)
+```
+
+Allows the bot to respond to the defined prefix.
+```
+bot = commands.Bot(command_prefix=config['prefix'])
+```
+
+The following spits out commentary in the console when the bot is running.
+```
+@bot.event
+async def on_ready():
+    print(f'{bot.user.name} has connected to Discord!')
+```
+
+The command structure for bot commands.
+```
+@bot.command(name='ping')
+async def ping(ctx):
+    await ctx.send('Pong!')
+```
+
+Allows the bot to sign into Discord.
+```
+bot.run(config['token'])
+```
+
+
+Start that goober with `python3 bot.py` or `python bot.py` (whichever works).
 
 #
 
@@ -208,71 +277,3 @@ Any other scripts can be safely removed.
 `CTRL + X` to exit nano.
 
 AND FINALLY, we can run `npm start` to run our Discord Bot. (Speaker Note: Call for hands of any questions)
-
-#
-
-### Python
-
-Install Python first my friend. `sudo yum update -y` then `sudo yum install -y python3` and also: `sudo yum install -y python3-pip`
-
-Next, make a folder to house the bot: `mkdir BOTNAME`
-
-Install Discord Python with the following command `pip install -U discord.py`
-
-Make a file called `bot.py` and `config.json`.
-
-```
-touch bot.py
-touch config.json
-```
-
-To edit your config file: `nano config.json` and enter the following:
-
-```
-{
-    "token": "YOUR_DISCORD_BOT_TOKEN",
-    "prefix": "YOUR_PREFIX_HERE"
-}
-```
-
-Edit your bot file with `nano bot.py` and add the following:
-These are imports that help the bot function.
-```
-import discord
-from discord.ext import commands
-import json
-```
-
-
-This allows the bot to parse the json file.
-```
-with open('config.json', 'r') as f:
-    config = json.load(f)
-```
-
-Allows the bot to respond to the defined prefix.
-```
-bot = commands.Bot(command_prefix=config['prefix'])
-```
-
-The following spits out commentary in the console when the bot is running.
-```
-@bot.event
-async def on_ready():
-    print(f'{bot.user.name} has connected to Discord!')
-```
-
-The command structure for bot commands.
-```
-@bot.command(name='ping')
-async def ping(ctx):
-    await ctx.send('Pong!')
-```
-
-Allows the bot to sign into Discord.
-```
-bot.run(config['token'])
-```
-
-
-Start that goober with `python3 bot.py` or `python bot.py` (whichever works).
