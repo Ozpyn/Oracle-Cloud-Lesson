@@ -209,6 +209,8 @@ Any other scripts can be safely removed.
 
 AND FINALLY, we can run `npm start` to run our Discord Bot. (Speaker Note: Call for hands of any questions)
 
+#
+
 ### Python
 
 Install Python first my friend. `sudo yum update -y` then `sudo yum install -y python3` and also: `sudo yum install -y python3-pip`
