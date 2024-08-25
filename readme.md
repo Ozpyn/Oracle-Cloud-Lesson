@@ -87,7 +87,8 @@ Using your preferred SSH client: connect to the server with the provided usernam
 
 ## Bot Stuff
 
-There are two routes we can take from here, depending on the bot you have or want to build. Personally I prefer JavaScript, so that is the guide I will follow, however if you wish to host the Python bot you made in a previous lesson there will be instructions on how to do that here.
+There are two routes we can take from here, depending on the bot you have or want to build. 
+I am a JavaScript enjoyer, however it is not kind to new users, so therefore I will follow the Python route.
 
 For both options you will need to create a discord application for the bot.
 
@@ -214,7 +215,7 @@ Install Python first my friend. `sudo yum update -y` then `sudo yum install -y p
 
 Next, make a folder to house the bot: `mkdir BOTNAME`
 
-Install Discord Python with the following command `pip install discord.py`
+Install Discord Python with the following command `pip install -U discord.py`
 
 Make a file called `bot.py` and `config.json`.
 
