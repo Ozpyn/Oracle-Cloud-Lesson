@@ -31,6 +31,21 @@ The most common way to host a website on a server involves a lengthy process of 
 
 For the purposes of this lesson I suggest only allocating 2 cores and 8gb of ram to the Server instance. (Oracle has support for changing the allocation of resources later on, if desired.)
 
+I think it is also important to note the allowed CPU and GB hours per month. Oracle describes their ARM compute instances as follows:
+```
+Arm Compute Instance
+Arm-based Ampere A1 cores and 24 GB of memory usable as 1 VM or up to 4 VMs
+
+Always Free
+3,000 OCPU hours and 18,000 GB hours per month
+```
+Doing some quick napkin math:
+```
+4 Cores * 24 Hours/day * 31 Days/Month = 2,976 OCPU Hours
+24 GB of Ram * 24 Hours/day * 31 Days/Month = 17,865 GB Hours
+```
+Oracle is giving out instances that cant feasibly run out of operation time, meaning we can keep the server running non-stop.
+
 ## Create a VM Instance
 
 First, we need to create a VM instance. To get started, click on 'Create a VM Instance' on the landing page after signing in. You may have to scroll down to the 'Launch Resources' panel.
@@ -84,6 +99,13 @@ After the VM has provisioned its public ip-address and username will become visi
 ![General Info.](/images/gen-info.png "General Info")
 
 Using your preferred SSH client: connect to the server with the provided username and ip address. (e.g. `ssh usr@10.10.10.10 -i ~/Downloads/key.key` )
+
+## Anything you wanna do
+
+At this point the instance is set up for anything you would feasibly want to do with it, you can continue the lesson if you wish to set up a discord bot on this server.
+
+---
+---
 
 ## Bot Stuff
 
